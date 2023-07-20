@@ -1,6 +1,6 @@
 # Algo2
 
-Este es el repositorio del sitio web de Algoritmos y Programación II, publicado en:
+Este es el repositorio del sitio web de Algoritmos y Estructuras de Datos, publicado en:
 
 <https://algoritmos-rw.github.io/algo2/>
 
