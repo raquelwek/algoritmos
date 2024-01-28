@@ -21,7 +21,7 @@ El trabajo práctico número 3 tiene fecha de entrega para el día **{{fecha}}**
 
 ## Introducción
 
-Llega diciembre y la conocida comunidad IMDB está realizando un balance del año. Son devotos de conocer qué películas son las más populares y a qué actores se les podría llamar más famosos.
+La conocida comunidad IMDB está realizando un balance de años anteriors. Son devotos de conocer qué películas son las más populares y a qué actores se les podría llamar más famosos.
 Pero no solo quieren saber esto, ya que este año el CEO de la página escuchó sobre la idea de los “Seis grados de Kevin Bacon” y decidió que podía utilizar la enorme base de datos que maneja diariamente la página para corroborar la veracidad de esta idea.
 Para esto, decidió sabiamente confiar en los alumnos de Algoritmos y Estructuras de Datos de la FIUBA, aprovechando su conocimiento para poder así resolver el misterio.
 
@@ -51,7 +51,7 @@ Cuando un actor esta completamente desconectado de KB, es decir, no tiene forma 
 
 ## Datos Disponibles
 
-Para poder trabajar, contamos con un set de datos obtenido desde IMDB, [`actors.csv`](https://drive.google.com/drive/folders/0B2J1xTZnFQnBVnZzcF8xR3Z3SVE?usp=sharing) (**comma separated values**) con un total de 2.480.000 actores y actrices y 800.000 películas. Cada linea de este archivo tiene el formato de `apellido nombre, pelicula1, pelicula2, pelicula3, ...` Por ejemplo:
+Para poder trabajar, contamos con un set de datos obtenido desde IMDB, [`actors.csv`](https://drive.google.com/drive/folders/1hBZT2aE7haJT9s9COmqqACFYCDpGlrrF?usp=sharing) (**comma separated values**) con un total de 2.480.000 actores y actrices y 800.000 películas. Cada linea de este archivo tiene el formato de `apellido nombre, pelicula1, pelicula2, pelicula3, ...` Por ejemplo:
 
 ```
 Bacon Kevin,A Few Good Men (1992),A Little Vicious (1991),Animal House (1978),Apollo 13 (1995/I),Balto (1995),Beauty Shop (2005),Beyond All Boundaries (2009),Black Mass (2015),Cavedweller (2004),Cop Car (2015),Crazy Stupid Love (2011),Criminal Law (1988),Death Sentence (2007),Digging to China (1997),Diner (1982),Elephant White (2011),End of the Line (1987),Enormous Changes at the Last Minute (1983),Flatliners (1990),Footloose (1984),Forty Deuce (1982),Friday the 13th (1980),Frost/Nixon (2008),He Said She Said (1991),Hero at Large (1980),Hollow Man (2000),Jayne Mansfields Car (2012),JFK (1991),Lemon Sky (1988),Loverboy (2005),Murder in the First (1995),My Dog Skip (2000),My One and Only (2009),Mystic River (2003),New York Skyride (1994),Only When I Laugh (1981),Patriots Day (2016),Picture Perfect (1997),Pyrates (1991),Queens Logic (1991),Quicksilver (1986),RIPD (2013),Rails & Ties (2007),Saving Angelo (2007),Shes Having a Baby (1988),Sleepers (1996),Starting Over (1979),Stir of Echoes (1999),Super (2010/I),Telling Lies in America (1997),The Air I Breathe (2007),The Air Up There (1994),The Big Green (2014),The Big Picture (1989),The Darkness (2016/I),The Making of Apollo 13 (1995),The River Wild (1994),The Woodsman (2004),These Vagabond Shoes (2009),Tough Day (2014),Trapped (2002/I),Tremors (1990),Where the Truth Lies (2005),White Water Summer (1987),Wild Things (1998),X-men First Class (2011)
@@ -71,7 +71,7 @@ Una vez cargada la red, se deberán realizar acciones sobre la misma a partir de
 
 ### Implementación
 
-El trabajo puede realizarse en lenguaje a elección, siendo aceptados Go, Python y C, y cualquier otro a ser discutido con el corrector asignado.
+El trabajo puede realizarse en lenguaje a elección, siendo aceptados Go, Python y C, y cualquier otro a ser coordinado con el corrector asignado.
 
 El trabajo consiste de 3 partes:
 1. El TDA Grafo, con sus primitivas completamente agnósticas sobre su uso para modelar la red de actores.  
@@ -79,14 +79,14 @@ El trabajo consiste de 3 partes:
 1. El programa `kevinbaconeta` que utilice tanto el TDA como la biblioteca para poder implementar todo
 lo requerido.
 
-Es importante notar que las primeras dos partes deberían poder funcionar en cualquier contexto: El TDA Grafo para cualquier tipo de TP3 (o utilidad); la biblioteca de funciones debe funcionar para aplicar cualquiera de las funciones implementadas sobre cualquier grafo que tenga las características de las de este TP (particularmente, dirigido y no pesado). La tercera parte es la que se encuentra enteramente acoplada al TP en particular. 
+Es importante notar que las primeras dos partes deberían poder funcionar en cualquier contexto: El TDA Grafo para cualquier tipo de TP3 (o utilidad); la biblioteca de funciones debe funcionar para aplicar cualquiera de las funciones implementadas sobre cualquier grafo que tenga las características de las de este TP. La tercera parte es la que se encuentra enteramente acoplada al TP en particular. 
 
 El programa a realizar debe recibir por parámetro y cargar en memoria el set de datos (`$ ./kevinbaconeta actors.csv`) y luego solicitar el ingreso de comandos por entrada estándar, del estilo `comando 'parametro'`. Notar que esto permite tener un archivo de instrucciones a ser ejecutadas (e.g. `./kevinbacon actors.csv < comandos.txt`).
 
 
 A continuación se listarán los comandos junto a ejemplos de entrada y salidas para el caso de la red reducida. 
 Recomendamos trabajar con este set de datos, puesto que el original cuenta con una enorme cantidad de datos, por lo que
-puede demorar mucho tiempo cada una de las pruebas a realizar. 
+puede demorar mucho tiempo cada una de las pruebas a realizar (especialmente los comandos con una complejidad mayor a lineal).
 
 #### Camino hasta un actor
 
@@ -134,8 +134,8 @@ KBN_promedio
 
 #### Similares a un actor
 * Comando: `similares`.
-* Parámetros: `actor1` y `n`. 
-* Utilidad: Encuentra a los _n_ actores más similares al actor dado. Se imprimen de más similar a menos similar.  
+* Parámetros: `actor` y `n`. 
+* Utilidad: Encuentra a los `n` actores más similares al `actor` dado. Se imprimen de más similar a menos similar.  
 Para la implementación de este comando, leer [el apunte sobre Pagerank Personalizado](/aed/material/apuntes/pagerank).
 * Complejidad: Este comando debe ejecutar en $$\mathcal{O}(A + P)$$.
 * Ejemplo:
@@ -182,12 +182,12 @@ También tengan en cuenta que con sólo escribir en Google, por ejemplo, `bacon 
 Adicionalmente a los archivos propios del trabajo práctico debe agregarse un archivo `entrega.mk` que contenga la regla `kevinbaconeta` para generar el ejecutable de dicho programa (sea compilando o los comandos que fueren necesarios). Por ejemplo, teniendo un TP elaborado en Python, podría ser:
 
 ``` makefile
-kevinbaconeta: kevin.py grafo.py biblioteca.py
+kevinbaconeta:
     cp kevin.py kevinbaconeta
     chmod +x kevinbaconeta
 ```
 
-**Importante**: En caso de recibir un error `FileNotFoundError: [Errno 2] No such file or directory: './kevinbaconeta': './kevinbaconeta'`, tener en cuenta que para el caso de enviar código escrito en Python es necesario además indicar la ruta del intérprete. Esto puede hacerse agregando como primera línea del archivo principal (en el ejemplo, sería `kevinbaconeta.py`) la línea: `#!/usr/bin/python3`.
+**Importante**: En caso de recibir un error `FileNotFoundError: [Errno 2] No such file or directory: './kevinbaconeta': './kevinbaconeta'`, tener en cuenta que para el caso de enviar código escrito en Python es necesario además indicar la ruta del intérprete. Esto puede hacerse agregando como primera línea del archivo principal (en el ejemplo, sería `kevin.py`) la línea: `#!/usr/bin/python3`.
 
 Si el TP fuera realizado en Go, un posible ejemplo del archivo podría ser:
 
@@ -199,7 +199,7 @@ kevinbaconeta:
 ## Criterios de aprobación
 
 El código entregado debe ser claro y legible y ajustarse a las especificaciones
-de la consigna. Debe compilar sin advertencias y correr sin errores de memoria.
+de la consigna.
 
 La entrega incluye, obligatoriamente, los siguientes archivos de código:
 
